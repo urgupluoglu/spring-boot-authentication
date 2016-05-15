@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="60">
+
+    <Properties>
+        <Property name="logFolderName">build/logs</Property>
+    </Properties>
+
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <Console name="STDOUT">
+            <PatternLayout pattern="%m MDC%X%n"/>
+        </Console>
+
+        <Console name="FLOW">
+            <!-- this pattern outputs class name and line number -->
+            <PatternLayout pattern="%C{1}.%M %m %ex%n"/>
+            <filters>
+                <MarkerFilter marker="FLOW" onMatch="ACCEPT"
+                              onMismatch="NEUTRAL"/>
+                <MarkerFilter marker="EXCEPTION" onMatch="ACCEPT"
+                              onMismatch="DENY"/>
+            </filters>
+        </Console>
+
+    </Appenders>
+
+    <Loggers>
+
+        <Root level="error">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
