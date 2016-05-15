@@ -1,0 +1,12 @@
+use intellij idea to open this project
+
+set java 1.8+
+
+gradle 2.12 or 2.2 should be fine
+
+xxx means you need to write your own thing in there..
+
+make sure you don't have anything running on port 8080
+(netstat -nlp | grep 8080)
+
+
